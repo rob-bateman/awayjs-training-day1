@@ -29,8 +29,15 @@ import {
   Image,
 } from "spectacle";
 
+import CodeSlide from 'spectacle-code-slide';
+
 // Import theme
+
+//import createTheme from "spectacle/lib/themes/default";
 import createTheme from "spectacle-theme-nova";
+
+import 'spectacle-theme-nova/syntax/prism.nova.css';
+import 'spectacle-theme-nova/syntax/prism-typescript'
 
 // Require CSS
 require("normalize.css");
@@ -52,18 +59,13 @@ export default class Presentation extends React.Component {
         <Slide bgDarken='0.7' bgImage={images.background}>
           <Heading size={1} fit>AwayJS Training Day 1</Heading>
           <Heading size={3}>Setup, Overview, Examples</Heading>
-          <Text>
-            <Link href="https://github.com/rob-bateman/awayjs-training-day1">
-              View on Github
-            </Link>
-          </Text>
         </Slide>
         <Slide>
           <Heading size={2}>VS Code</Heading>
           <List>
             <ListItem>Workspace, Version Control, Integrated Terminal</ListItem>
-            <ListItem>Checkout sample project, building &amp; editing</ListItem>
-            <ListItem>Shortcuts for navigation (CTRL-P, CTRL-N, CTRL-W etc)</ListItem>
+            <ListItem>Checkout <Link href="https://github.com/awayjs/awayjs-examples">examples project</Link>, building &amp; testing</ListItem>
+            <ListItem>Shortcuts for navigation</ListItem>
           </List>
         </Slide>
         <Slide>
@@ -74,7 +76,8 @@ export default class Presentation extends React.Component {
             <Appear><ListItem><Code>renderer</Code> <Text style={inline} >=> </Text><Text style={inline} textColor="pink">renderer</Text><Text style={inline}> types, base interfaces for rendering objects...</Text></ListItem></Appear>
             <Appear><ListItem><Code>materials</Code> <Text style={inline} >=> Standard </Text><Text style={inline} textColor="pink">material</Text><Text style={inline} >, </Text><Text style={inline} textColor="pink">light</Text><Text style={inline}> &amp; </Text><Text style={inline} textColor="pink">shadowmap</Text><Text style={inline}> objects...</Text></ListItem></Appear>
             <Appear><ListItem><Code>graphics</Code> <Text style={inline} >=> Standard </Text><Text style={inline} textColor="pink">renderable</Text><Text style={inline}> objects, drawing API, GPU animators...</Text></ListItem></Appear>
-            <Appear><ListItem><Code>scene</Code> <Text style={inline} >=> </Text><Text style={inline} textColor="pink">display</Text><Text style={inline} > objects, base interfaces for rendering objects...</Text></ListItem></Appear>
+            <Appear><ListItem><Code>scene</Code> <Text style={inline} >=> </Text><Text style={inline} textColor="pink">display</Text><Text style={inline} > objects, </Text><Text style={inline} textColor="pink">prefab</Text><Text style={inline} > objects, </Text><Text style={inline} >text manipulation...</Text></ListItem></Appear>
+            <Appear><ListItem><Code>view</Code> <Text style={inline} >=> </Text><Text style={inline} textColor="pink">partition</Text><Text style={inline} > objects, mouse interactions...</Text></ListItem></Appear>
           </List>
         </Slide>
         <Slide>
@@ -87,96 +90,110 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
         <Slide>
+          <Text>Break</Text>
+        </Slide>
+        <Slide>
           <Heading size={2}>Introduction to TypeScript</Heading>
-          <List>
-            <ListItem>The <Code>awayjs-full</Code> module</ListItem>
-            <ListItem>Creating npm links (by hand or with batch script)</ListItem>
-            <ListItem>Linking <Code>awayjs-full</Code> module to an AwayJS project</ListItem>
-            <ListItem>Using watchers to update modules</ListItem>
-          </List>
-        </Slide>
-        <Slide>
-          <Text>Some text that is styled with <S type="strikethrough">strikethrough</S>.</Text>
-          <Text>🐙</Text>
-          <Text style={inline} textColor="cyan">All </Text>
-          <Text style={inline} textColor="blue">Nova </Text>
-          <Text style={inline} textColor="purple">theme </Text>
-          <Text style={inline} textColor="pink">colors </Text>
-          <Text style={inline} textColor="red">are </Text>
-          <Text style={inline} textColor="orange">available </Text>
-          <Text style={inline} textColor="yellow">here </Text>
-          <Text style={inline} textColor="green">! </Text>
-          <Text>🐳</Text>
-          <Text style={inline} textColor="gray0">This </Text>
-          <Text style={inline} textColor="gray1">is </Text>
-          <Text style={inline} textColor="gray2">also </Text>
-          <Text style={inline} textColor="gray3">true </Text>
-          <Text style={inline} textColor="gray4">for </Text>
-          <Text style={inline} textColor="gray5">gray </Text>
-          <Text style={inline} textColor="gray6">! </Text>
-        </Slide>
-        <Slide>
-          <BlockQuote>
-            <Quote>Falling in love with code means falling in love with problem solving and being a part of a forever ongoing conversation.</Quote>
-            <Cite>Kathryn Barrett</Cite>
-          </BlockQuote>
-        </Slide>
-        <Slide>
-          <Heading size={2}>A wild List appears...</Heading>
-          <List>
-            <Appear><ListItem>One</ListItem></Appear>
-            <Appear><ListItem>Two</ListItem></Appear>
-            <Appear><ListItem>Three</ListItem></Appear>
-          </List>
-        </Slide>
-        <Slide>
-          <Image src={images.pug} height="500px"/>
           <Text>
-            <Link href="https://commons.wikimedia.org/wiki/File:Carl_Reichert_Mops.jpg">A Pug by Carl Reichert (1836-1918)</Link>
+            <Link href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">
+              Typescript in 5 minutes
+            </Link>
           </Text>
         </Slide>
-        <Slide bgDarken="0.7" bgImage={images.nyan}>
-          <Heading size={1}>Block of Text</Heading>
-        </Slide>
-        <Slide>
-          <Heading>Columns</Heading>
-          <Layout>
-            <Fill>
-              <Text margin={`0 ${gutter} 0 0`} textAlign="left">
-                JSON for Linked Data. Ionic is a realtime MVC Framework for Node. JavaScript language that compiles into JavaScript. Express is a JavaScript library for JavaScript programmers. MVC Framework for Node.
-              </Text>
-            </Fill>
-            <Fill>
-              <Text margin={`0 0 0 ${gutter}`} textAlign="left">
-                Applications such as PDF documents, site-specific browsers, and desktop widgets. JavaScript developer. MongoDB, ExpressJS, AngularJS, and Node. JavaScript code linter. Patterns is a JavaScript API for rendering interactive 3D and 2D graphics within any compatible web browser without the use of JavaScript for server-side Web applications.
-              </Text>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide>
-          <Heading>Fitting</Heading>
-          <Layout>
-            <Fit>
-              <Image src={images.pug} width="500px" height="300px" margin="0 2rem 0 0"/>
-            </Fit>
-            <Fill>
-              <List>
-                <ListItem>One</ListItem>
-                <ListItem>Two</ListItem>
-                <ListItem>Three</ListItem>
-              </List>
-            </Fill>
-          </Layout>
-        </Slide>
-        <Slide>
-          <CodePane
+        <CodeSlide textSize="20"
+            transition={[]}
             lang="typescript"
-            source={require('raw-loader!../assets/example.ts')}
-          ></CodePane>
+            code={require("raw-loader!../assets/Rectangle.ts")}
+            ranges={[
+              { loc: [0, 572], title: "Rectangle.ts" },
+              { loc: [0, 1], title: "ES6 import" },
+              { loc: [46, 47], title: "Class definition" },
+              { loc: [71, 72], title: "Property" },
+              { loc: [105, 114], title: "Getter / Setter" },
+              { loc: [363, 370], title: "Method with point arg"  },
+              // ...
+            ]}/>
+        <CodeSlide textSize="20"
+            transition={[]}
+            lang="typescript"
+            code={require("raw-loader!../assets/TextureAtlas.ts")}
+            ranges={[
+              { loc: [0, 140], title: "TextureAtlas.ts" },
+              { loc: [0, 3], title: "imports from module dependencies" },
+              { loc: [8, 11], title: "primitive object declarations" },
+              { loc: [42, 43], title: "static keyword" },
+              { loc: [76, 81], title: "constructor keyword" }
+              // ...
+            ]}/>
+        <Slide>
+          <Heading size={2} fit>Typescript tricks in VS Code</Heading>
+          <List>
+            <ListItem>Code hints from comments</ListItem>
+            <ListItem>Jump to declaration</ListItem>
+            <ListItem>Advanced intellisense</ListItem>
+            <ListItem>Auto imports</ListItem>
+          </List>
         </Slide>
         <Slide>
-          <Text>Some text that das inline <Code>code</Code>!</Text>
-          <Text>This <Code>global</Code> is another piece of inline code!</Text>
+          <Text>Lunch</Text>
+        </Slide>
+        <CodeSlide textSize="20"
+            transition={[]}
+            lang="typescript"
+            code={require("raw-loader!../assets/Basic_View.ts")}
+            ranges={[
+              { loc: [0, 141], title: "typical boilerplate setup (Basic_View.ts)" },
+              { loc: [38, 44], title: "imports using awayjs-full" },
+              { loc: [64, 71], title: "init view and camera" },
+              { loc: [72, 78], title: "add objects to the scene" },
+              { loc: [78, 83], title: "add resize listener" },
+              { loc: [128, 135], title: "add resize listener" },
+              { loc: [84, 86], title: "setup RAF callback" },
+              { loc: [96, 102], title: "setup RAF callback" },
+              { loc: [87, 91], title: "load some assets" },
+              { loc: [102, 123], title: "load some assets" }
+              // ...
+            ]}/>
+        <Slide>
+          <Heading size={2}>AwayJS basics</Heading>
+          <List>
+            <ListItem>Moving / rotating / scaling objects</ListItem>
+            <ListItem>Mouse Events, Keyboard Events, Scene Events</ListItem>
+            <ListItem>2D setup for loading AWDs / SWFs</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Text>Break</Text>
+        </Slide>
+        <Slide>
+          <Heading size={2}>Stage Exploration</Heading>
+          <Text>The <Code>Stage</Code> object wraps a single canvas</Text>
+          <Text>GPU methods are exposed through the <Code>IContext</Code> interface.</Text>
+          <Text>Stage abstractions hold asset properties unique to each stage</Text>
+          <Text>🐙</Text>
+        </Slide>
+        <Slide>
+          <Heading size={2}>Renderer Exploration</Heading>
+          <Text>The <Code>Renderer</Code> object wraps the <Code>Stage</Code></Text>
+          <Text><Code>IRendererable</Code> objects are collected and rendered by the <Code>Renderer</Code></Text>
+          <Text>The <Code>IRendererable</Code> abstraction holds all state data for rendering</Text>
+          <Text>🐳</Text>
+        </Slide>
+        <Slide>
+          <Heading size={2}>Partition &amp; Traverser</Heading>
+          <Text>A <Code>Traverser</Code> object is used to collect <Code>Entity</Code> objects from a <Code>Partition</Code></Text>
+          <Text>Pertitions are created and managed by the <Code>View</Code>, and updated by the <Code>Scene</Code></Text>
+          <Text>Both <Code>Renderer</Code> and <Code>RayCastPicker</Code> traverse partitions</Text>
+          <Text>🐡</Text>
+        </Slide>
+        <Slide>
+          <Text>Break</Text>
+        </Slide>
+        <Slide>
+          <Heading size={2}>Freeform hour</Heading>
+        </Slide>
+        <Slide>
+          <Text>End of day 1</Text>
         </Slide>
       </Deck>
     );
